@@ -42,6 +42,14 @@ public class EmployeeController {
     public Optional<Employee> getEmployeeById(@PathVariable("employeeId") Long employeeId){
         return employeeService.getEmployeeById(employeeId);
     }
+    @GetMapping("/{status}")
+    public Optional<Employee> getEmployeeByStatus(@PathVariable("status") String status   ){
+        return employeeService.getEmployeeByStatus(status);
+    }
+    @GetMapping("/{department}")
+    public Optional<Employee> getEmployeeByDepartment(@PathVariable("department") String department){
+        return employeeService.getEmployeeByDepartment(department);
+    }
 }
 
 

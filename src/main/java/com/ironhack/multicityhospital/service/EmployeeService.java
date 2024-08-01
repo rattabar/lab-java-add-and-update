@@ -26,6 +26,14 @@ public class EmployeeService {
         log.info("Get employee by Id {}", employeeId);
         return employeeRepository.findById(employeeId);
     }
+    public Optional<Employee> getEmployeeByStatus(String status) {
+        log.info("Get employee by status {}", status);
+        return employeeRepository.findByStatus(status);
+    }
+    public Optional<Employee> getEmployeeByDepartment(String department){
+        log.info("Get employee by department");
+        return employeeRepository.findByDepartment(department);
+    }
 
     public Employee addNewEmployee(Employee employee){
         log.info("adding new employee {}", employee);

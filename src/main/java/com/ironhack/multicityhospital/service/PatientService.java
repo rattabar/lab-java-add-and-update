@@ -37,4 +37,18 @@ public class PatientService {
 
         patientRepository.deleteById(patientId);
     }
+
+    public Patient updatePatientById(Long patientId, Patient patient){
+        log.info("updating a patient with id{}", patientId);
+        var patientToUpdate = patientRepository.findById(patientId).orElseThrow();
+        patientToUpdate.setName(patient.getName());
+        return patientRepository.save(patientToUpdate);
+    }
+    public Optional<Patient> getPatientByAdmittedBy(Long admittedBy) {
+        log.info("Get patient by admittedBy");
+        return patientRepository.findByAdmittedBy(admittedBy);
+    }
+
+
+
 }

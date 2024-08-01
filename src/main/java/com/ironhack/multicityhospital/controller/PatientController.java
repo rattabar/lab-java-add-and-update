@@ -41,6 +41,17 @@ public class PatientController {
     public Optional<Patient> getPatientById(@PathVariable("patientId") Long patientId){
         return patientService.getPatientById(patientId);
     }
+    @GetMapping("/{admittedBy}")
+    public Optional<Patient> getPatientByAdmittedBy(@PathVariable("admittedBy") Long admittedBy){
+        return patientService.getPatientByAdmittedBy(admittedBy);
+    }
+
+    @PutMapping("/{patientId}")
+    public Patient updatePatientById(@PathVariable("patientId") Long patientId,
+                                   @RequestBody Patient patient){
+        return patientService.updatePatientById(patientId, patient);
+    }
+
 
 }
 
