@@ -2,6 +2,7 @@ package com.ironhack.multicityhospital.service;
 
 
 import com.ironhack.multicityhospital.model.Employee;
+import com.ironhack.multicityhospital.model.Patient;
 import com.ironhack.multicityhospital.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -44,6 +45,19 @@ public class EmployeeService {
         log.info("Removing employee with id {}", employeeId);
 
         employeeRepository.deleteById(employeeId);
+    }
+
+    public Employee updateEmployeeByDepartment(String department, Employee employee){
+        log.info("updating a doctor with department{}", department);
+        var employeeToUpdate = employeeRepository.findByDepartment(department).orElseThrow();
+        employeeToUpdate.setName(employee.getName());
+        return employeeRepository.save(employeeToUpdate);
+    }
+    public Employee updateEmployeeByStatus(String status, Employee employee){
+        log.info("updating a doctor with status{}", status);
+        var employeeToUpdate = employeeRepository.findByStatus(status).orElseThrow();
+        employeeToUpdate.setName(employee.getName());
+        return employeeRepository.save(employeeToUpdate);
     }
 }
 

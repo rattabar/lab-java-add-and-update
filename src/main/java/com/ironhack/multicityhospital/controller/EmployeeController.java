@@ -50,6 +50,16 @@ public class EmployeeController {
     public Optional<Employee> getEmployeeByDepartment(@PathVariable("department") String department){
         return employeeService.getEmployeeByDepartment(department);
     }
+    @PutMapping("/{department}")
+    public Employee updateEmployeeByDepartment(@PathVariable("department") String department, @RequestBody Employee employee ){
+        return employeeService.updateEmployeeByDepartment(department, employee);
+    }
+
+    @PutMapping("/{status}")
+    public   Employee updateEmployeeByStatus(@PathVariable("status") String status, @RequestBody Employee employee ){
+        return employeeService.updateEmployeeByStatus(status, employee);
+    }
+
 }
 
 

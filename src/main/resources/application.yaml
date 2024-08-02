@@ -3,7 +3,7 @@ spring:
   #    log-startup-info: false
 
   datasource:
-    url: jdbc:mysql://localhost:3306/multi_city_hospital_db
+      url: jdbc:mysql://localhost:3306/multi_city_hospital_db
     username: root
     password: root
   jpa:
